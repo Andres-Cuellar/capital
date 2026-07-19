@@ -1,6 +1,7 @@
 "use client";
 
 import { useT } from "@/lib/i18n/LanguageProvider";
+import Image from "next/image";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { BookingForm } from "@/components/booking/BookingForm";
 
@@ -18,9 +19,10 @@ export default function ContactPage() {
 
 function ContactHero({ t }: { t: ReturnType<typeof useT>["t"] }) {
   return (
-    <section className="relative pt-40 pb-28 md:pt-48 md:pb-36 bg-black overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-amber rounded-full blur-[120px]" />
+    <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0">
+        <Image src="/images/contact.webp" alt="Contact Capital Detailing" fill className="object-cover" priority sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
       </div>
       <div className="relative max-w-4xl mx-auto px-8 text-center">
         <FadeIn>

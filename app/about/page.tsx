@@ -26,7 +26,7 @@ function AboutHero({ t }: { t: ReturnType<typeof useT>["t"] }) {
   return (
     <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
       <motion.div style={{ y: parallaxY }} className="absolute inset-0">
-        <Image src="https://images.unsplash.com/photo-1503376780353-7e6694c6ae27?w=1920&q=85" alt="Luxury car" fill className="object-cover" priority sizes="100vw" />
+        <Image src="/images/aboutus.webp" alt="Luxury car" fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
       </motion.div>
       <GoldFrame />
@@ -66,7 +66,7 @@ function WelcomeSection({ t }: { t: ReturnType<typeof useT>["t"] }) {
           <FadeIn direction="right" className="order-1 lg:order-2">
             <div className="relative">
               <div className="relative h-[500px] md:h-[600px] overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1605618826115-fb9e0c4f3b48?w=900&q=85" alt="Detailing process" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                <Image src="/images/silver_pack.webp" alt="Detailing process" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               </div>
               <div className="absolute -top-5 -left-5 w-28 h-28 border border-amber/20 pointer-events-none hidden lg:block" />
@@ -126,10 +126,10 @@ function ValuesSection({ t }: { t: ReturnType<typeof useT>["t"] }) {
 
 function ProcessSection({ t }: { t: ReturnType<typeof useT>["t"] }) {
   const steps = [
-    { ...t.process.step1, image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=85" },
-    { ...t.process.step2, image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=85" },
-    { ...t.process.step3, image: "https://images.unsplash.com/photo-1605618826115-fb9e0c4f3b48?w=600&q=85" },
-    { ...t.process.step4, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85" },
+    { ...t.process.step1, image: "/images/silver_pack.webp" },
+    { ...t.process.step2, image: "/images/ceramic.webp" },
+    { ...t.process.step3, image: "/images/contact.webp" },
+    { ...t.process.step4, image: "/images/ceramic.webp" },
   ];
   return (
     <section className="py-28 md:py-36 bg-black-light relative overflow-hidden">

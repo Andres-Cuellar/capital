@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { useT } from "@/lib/i18n/LanguageProvider";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
@@ -66,16 +68,16 @@ function ServicesIntro({ t }: { t: ReturnType<typeof useT>["t"] }) {
 
 function ServicesCatalog({ t }: { t: ReturnType<typeof useT>["t"] }) {
   const services = [
-    { name: t.silverPkg.name, price: t.silverPkg.price, image: "/images/silver_pack.webp", description: t.silverPkg.desc, features: [t.silverPkg.f1, t.silverPkg.f2, t.silverPkg.f3, t.silverPkg.f4, t.silverPkg.f5, t.silverPkg.f6] },
-    { name: t.goldPkg.name, price: t.goldPkg.price, image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=85", description: t.goldPkg.desc, features: [t.goldPkg.f1, t.goldPkg.f2, t.goldPkg.f3, t.goldPkg.f4, t.goldPkg.f5, t.goldPkg.f6], highlighted: true },
-    { name: t.extPolishPkg.name, price: t.extPolishPkg.price, image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=85", description: t.extPolishPkg.desc, features: [t.extPolishPkg.f1, t.extPolishPkg.f2, t.extPolishPkg.f3, t.extPolishPkg.f4, t.extPolishPkg.f5, t.extPolishPkg.f6] },
-    { name: t.platinumCarPkg.name, price: t.platinumCarPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", description: t.platinumCarPkg.desc, features: [t.platinumCarPkg.f1, t.platinumCarPkg.f2, t.platinumCarPkg.f3, t.platinumCarPkg.f4, t.platinumCarPkg.f5, t.platinumCarPkg.f6, t.platinumCarPkg.f7, t.platinumCarPkg.f8, t.platinumCarPkg.f9, t.platinumCarPkg.f10, t.platinumCarPkg.f11] },
-    { name: t.platinumSuvPkg.name, price: t.platinumSuvPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", description: t.platinumSuvPkg.desc, features: [t.platinumSuvPkg.f1, t.platinumSuvPkg.f2, t.platinumSuvPkg.f3, t.platinumSuvPkg.f4, t.platinumSuvPkg.f5, t.platinumSuvPkg.f6, t.platinumSuvPkg.f7, t.platinumSuvPkg.f8, t.platinumSuvPkg.f9, t.platinumSuvPkg.f10, t.platinumSuvPkg.f11, t.platinumSuvPkg.f12, t.platinumSuvPkg.f13] },
-    { name: t.ceramicPkg.name, price: t.ceramicPkg.price, image: "/images/ceramic.webp", description: t.ceramicPkg.desc, features: [t.ceramicPkg.f1, t.ceramicPkg.f2, t.ceramicPkg.f3, t.ceramicPkg.f4, t.ceramicPkg.f5, t.ceramicPkg.f6], premium: true },
+    { slug: "silver", name: t.silverPkg.name, price: t.silverPkg.price, image: "/images/silver_pack.webp", description: t.silverPkg.desc, features: [t.silverPkg.f1, t.silverPkg.f2, t.silverPkg.f3, t.silverPkg.f4, t.silverPkg.f5, t.silverPkg.f6] },
+    { slug: "gold", name: t.goldPkg.name, price: t.goldPkg.price, image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=85", description: t.goldPkg.desc, features: [t.goldPkg.f1, t.goldPkg.f2, t.goldPkg.f3, t.goldPkg.f4, t.goldPkg.f5, t.goldPkg.f6], highlighted: true },
+    { slug: "exterior-polish", name: t.extPolishPkg.name, price: t.extPolishPkg.price, image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=85", description: t.extPolishPkg.desc, features: [t.extPolishPkg.f1, t.extPolishPkg.f2, t.extPolishPkg.f3, t.extPolishPkg.f4, t.extPolishPkg.f5, t.extPolishPkg.f6] },
+    { slug: "platinum-cars", name: t.platinumCarPkg.name, price: t.platinumCarPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", description: t.platinumCarPkg.desc, features: [t.platinumCarPkg.f1, t.platinumCarPkg.f2, t.platinumCarPkg.f3, t.platinumCarPkg.f4, t.platinumCarPkg.f5, t.platinumCarPkg.f6, t.platinumCarPkg.f7, t.platinumCarPkg.f8, t.platinumCarPkg.f9, t.platinumCarPkg.f10, t.platinumCarPkg.f11] },
+    { slug: "platinum-suvs", name: t.platinumSuvPkg.name, price: t.platinumSuvPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", description: t.platinumSuvPkg.desc, features: [t.platinumSuvPkg.f1, t.platinumSuvPkg.f2, t.platinumSuvPkg.f3, t.platinumSuvPkg.f4, t.platinumSuvPkg.f5, t.platinumSuvPkg.f6, t.platinumSuvPkg.f7, t.platinumSuvPkg.f8, t.platinumSuvPkg.f9, t.platinumSuvPkg.f10, t.platinumSuvPkg.f11, t.platinumSuvPkg.f12, t.platinumSuvPkg.f13] },
+    { slug: "ceramic-coating", name: t.ceramicPkg.name, price: t.ceramicPkg.price, image: "/images/ceramic.webp", description: t.ceramicPkg.desc, features: [t.ceramicPkg.f1, t.ceramicPkg.f2, t.ceramicPkg.f3, t.ceramicPkg.f4, t.ceramicPkg.f5, t.ceramicPkg.f6], premium: true },
   ];
 
   return (
-    <section className="py-28 md:py-36 bg-black-light">
+    <section id="catalog" className="py-28 md:py-36 bg-black-light">
       <div className="max-w-7xl mx-auto px-8">
         <div className="mb-20 text-center">
           <FadeIn>
@@ -92,7 +94,7 @@ function ServicesCatalog({ t }: { t: ReturnType<typeof useT>["t"] }) {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((s) => (
             <StaggerItem key={s.name}>
-              <ServiceDetailCard {...s} t={t} />
+              <ServiceDetailCard {...s} t={t} slug={s.slug} />
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -101,12 +103,12 @@ function ServicesCatalog({ t }: { t: ReturnType<typeof useT>["t"] }) {
   );
 }
 
-function ServiceDetailCard({ name, price, image, description, features, highlighted, premium, t }: {
-  name: string; price: string; image: string; description: string; features: string[]; highlighted?: boolean; premium?: boolean;
-  t: ReturnType<typeof useT>["t"];
+function ServiceDetailCard({ name, price, image, description, highlighted, premium, t, slug }: {
+  name: string; price: string; image: string; description: string; highlighted?: boolean; premium?: boolean;
+  t: ReturnType<typeof useT>["t"]; slug?: string;
 }) {
-  return (
-    <div className={`group relative bg-black-card border overflow-hidden transition-all duration-500 h-full ${highlighted ? "border-amber/50 amber-glow" : premium ? "border-amber/30" : "border-black-border"}`}>
+  const content = (
+    <div className={`group relative bg-black-card border overflow-hidden transition-all duration-500 h-full ${highlighted ? "border-amber/50 amber-glow" : premium ? "border-amber/30" : "border-black-border hover:border-amber/30"}`}>
       {(highlighted || premium) && (
         <div className="absolute top-0 left-0 right-0 z-10 flex justify-center">
           <span className={`font-[family-name:var(--font-accent)] text-xs tracking-[0.35em] uppercase px-6 py-2 ${highlighted ? "bg-amber text-black" : "bg-amber/10 text-amber border-x border-b border-amber/30"}`}>
@@ -118,23 +120,19 @@ function ServiceDetailCard({ name, price, image, description, features, highligh
         <Image src={image} alt={name} fill className="object-cover transition-all duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-black-card via-black-card/40 to-transparent" />
       </div>
-      <div className="p-8 md:p-10">
-        <div className="flex items-start justify-between mb-4">
+      <div className="p-8 md:p-10 flex flex-col h-[calc(100%-13rem)]">
+        <div className="flex items-start justify-between mb-3">
           <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-silver-light">{name}</h3>
-          <div className="text-right shrink-0 ml-4">
-            <span className="font-[family-name:var(--font-display)] text-amber text-3xl font-bold">{price}</span>
-          </div>
+          <span className="font-[family-name:var(--font-display)] text-amber text-2xl font-bold shrink-0 ml-4">{price}</span>
         </div>
-        <p className="text-silver text-sm mb-6">{description}</p>
-        <ul className="space-y-2.5">
-          {features.map((f) => (
-            <li key={f} className="text-silver-dark text-sm flex items-center gap-3">
-              <span className="w-px h-3 bg-amber/60 shrink-0" />
-              {f}
-            </li>
-          ))}
-        </ul>
+        <p className="text-silver text-sm leading-relaxed flex-1">{description}</p>
+        <div className="mt-6 flex items-center gap-1.5 text-xs tracking-[0.25em] uppercase text-amber hover:text-amber-light transition-colors duration-300 group/link">
+          <span>{t.servicesPricing.moreDetails}</span>
+          <ChevronRight size={14} className="group-hover/link:translate-x-1 transition-transform duration-300" />
+        </div>
       </div>
     </div>
   );
+
+  return slug ? <Link href={`/services/${slug}`}>{content}</Link> : content;
 }

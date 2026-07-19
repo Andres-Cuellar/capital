@@ -153,7 +153,7 @@ function AboutSummary({ t }: { t: ReturnType<typeof useT>["t"] }) {
               <div className="relative lg:-ml-16">
                 <div className="relative h-[450px] md:h-[550px] overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=900&q=85"
+                    src="/images/silver_pack.webp"
                     alt="Detailing process"
                     fill
                     className="object-cover"
@@ -195,9 +195,9 @@ function AboutSummary({ t }: { t: ReturnType<typeof useT>["t"] }) {
 
 function ServicesPreview({ t }: { t: ReturnType<typeof useT>["t"] }) {
   const services = [
-    { title: t.silverPkg.name, description: t.silverPkg.desc, price: t.silverPkg.price, image: "/images/silver_pack.webp", href: "/services", features: [t.silverPkg.f1, t.silverPkg.f2, t.silverPkg.f3] },
-    { title: t.goldPkg.name, description: t.goldPkg.desc, price: t.goldPkg.price, image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=85", href: "/services", features: [t.goldPkg.f1, t.goldPkg.f2, t.goldPkg.f3] },
-    { title: t.platinumCarPkg.name, description: t.platinumCarPkg.desc, price: t.platinumCarPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", href: "/services", features: [t.platinumCarPkg.f1, t.platinumCarPkg.f5, t.platinumCarPkg.f6, t.platinumCarPkg.f10] },
+    { title: t.silverPkg.name, description: t.silverPkg.desc, price: t.silverPkg.price, image: "/images/silver_pack.webp", href: "/services/silver", features: [t.silverPkg.f1, t.silverPkg.f2, t.silverPkg.f3] },
+    { title: t.goldPkg.name, description: t.goldPkg.desc, price: t.goldPkg.price, image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=85", href: "/services/gold", features: [t.goldPkg.f1, t.goldPkg.f2, t.goldPkg.f3] },
+    { title: t.platinumCarPkg.name, description: t.platinumCarPkg.desc, price: t.platinumCarPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", href: "/services/platinum-cars", features: [t.platinumCarPkg.f1, t.platinumCarPkg.f5, t.platinumCarPkg.f6, t.platinumCarPkg.f10] },
   ];
 
   return (
