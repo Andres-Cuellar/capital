@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     "auto detailing",
     "car wash",
   ],
+  icons: { icon: "/images/icono.webp" },
 };
 
 export default function RootLayout({

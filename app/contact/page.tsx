@@ -2,8 +2,8 @@
 
 import { useT } from "@/lib/i18n/LanguageProvider";
 import Image from "next/image";
+import Script from "next/script";
 import { FadeIn } from "@/components/animations/FadeIn";
-import { BookingForm } from "@/components/booking/BookingForm";
 
 export default function ContactPage() {
   const { t } = useT();
@@ -100,7 +100,7 @@ function ContactFormSection({ t }: { t: ReturnType<typeof useT>["t"] }) {
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-muted rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-muted rounded-full blur-[100px]" />
       </div>
-      <div className="relative max-w-3xl mx-auto px-8">
+      <div className="relative max-w-7xl mx-auto px-8">
         <div className="text-center mb-12">
           <FadeIn>
             <span className="font-[family-name:var(--font-accent)] text-amber text-sm tracking-[0.35em] uppercase block mb-3">{t.contactForm.eyebrow}</span>
@@ -114,8 +114,17 @@ function ContactFormSection({ t }: { t: ReturnType<typeof useT>["t"] }) {
           </FadeIn>
         </div>
         <FadeIn delay={0.2}>
-          <div className="bg-black-card border border-black-border p-8 md:p-12">
-            <BookingForm t={t} compact />
+          <div className="bg-black-card border border-black-border p-0 md:p-2">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/booking/1d5zYuYpGFcnK0oin0wY"
+              style={{ width: "100%", border: "none", overflow: "hidden" }}
+              scrolling="no"
+              className="min-h-[750px] md:min-h-[550px]"
+            />
+            <Script
+              src="https://link.msgsndr.com/js/form_embed.js"
+              strategy="afterInteractive"
+            />
           </div>
         </FadeIn>
       </div>

@@ -21,7 +21,7 @@ export default function HomePage() {
       <StatsSection t={t} />
       <AboutSummary t={t} />
       <ServicesPreview t={t} />
-      <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} t={t} />
+      <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
     </>
   );
 }
@@ -97,7 +97,7 @@ function HeroSection({ t, onBook }: { t: ReturnType<typeof useT>["t"]; onBook: (
             <span className="absolute inset-0 bg-white/15 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>
           <a
-            href="/services"
+            href="/services#catalog"
             className="group relative border border-amber/70 text-amber font-[family-name:var(--font-accent)] text-xl tracking-wider px-10 py-4 overflow-hidden"
           >
             <span className="relative z-10">{t.hero.cta2}</span>
@@ -195,9 +195,9 @@ function AboutSummary({ t }: { t: ReturnType<typeof useT>["t"] }) {
 
 function ServicesPreview({ t }: { t: ReturnType<typeof useT>["t"] }) {
   const services = [
-    { title: t.silverPkg.name, description: t.silverPkg.desc, price: t.silverPkg.price, image: "/images/silver_pack.webp", href: "/services/silver", features: [t.silverPkg.f1, t.silverPkg.f2, t.silverPkg.f3] },
-    { title: t.goldPkg.name, description: t.goldPkg.desc, price: t.goldPkg.price, image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=85", href: "/services/gold", features: [t.goldPkg.f1, t.goldPkg.f2, t.goldPkg.f3] },
-    { title: t.platinumCarPkg.name, description: t.platinumCarPkg.desc, price: t.platinumCarPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", href: "/services/platinum-cars", features: [t.platinumCarPkg.f1, t.platinumCarPkg.f5, t.platinumCarPkg.f6, t.platinumCarPkg.f10] },
+    { title: t.silverPkg.name, description: t.silverPkg.desc, price: t.silverPkg.price, image: "/images/silver_pack.webp", href: "/services/silver" },
+    { title: t.goldPkg.name, description: t.goldPkg.desc, price: t.goldPkg.price, image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=85", href: "/services/gold" },
+    { title: t.platinumCarPkg.name, description: t.platinumCarPkg.desc, price: t.platinumCarPkg.price, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85", href: "/services/platinum-cars" },
   ];
 
   return (

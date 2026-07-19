@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { ArrowLeft } from "lucide-react";
 import { useT } from "@/lib/i18n/LanguageProvider";
 import { FadeIn } from "@/components/animations/FadeIn";
@@ -12,6 +13,15 @@ import { ServiceCard } from "@/components/ui/ServiceCard";
 type ServiceKey =
   | "silverPkg" | "goldPkg" | "extPolishPkg"
   | "platinumCarPkg" | "platinumSuvPkg" | "ceramicPkg";
+
+const bookingIds: Record<string, string> = {
+  silver: "LMa6FGpnLFZTisHYl1fb",
+  gold: "JA6k3JNzAWCYHFmAfz6D",
+  "exterior-polish": "kVPEcfWfej2moiHQalx4",
+  "platinum-cars": "tNllZ49x4bUOoOPNbWZt",
+  "platinum-suvs": "kR6JxCtuV0osUfyj1nwE",
+  "ceramic-coating": "zZ52Dj1WLeWAQO34dflW",
+};
 
 const slugs: Record<string, { key: ServiceKey; image: string; hero: string }> = {
   silver:              { key: "silverPkg",       image: "/images/silver_pack.webp",  hero: "/images/silver_pack.webp" },
@@ -102,16 +112,16 @@ export default function ServicePage() {
 
             {/* Right — Form placeholder */}
             <FadeIn direction="right">
-              <div className="bg-black-card border border-black-border p-8 md:p-10">
-                <span className="font-[family-name:var(--font-accent)] text-amber text-sm tracking-[0.3em] uppercase block mb-1">
-                  {t.bookingModal.eyebrow}
-                </span>
-                <h2 className="font-[family-name:var(--font-display)] text-2xl text-silver-light mb-6">
-                  {t.bookingModal.title}
-                </h2>
-                <div className="min-h-[300px] flex items-center justify-center border border-dashed border-black-border rounded text-silver-dark text-sm">
-                  GHL iframe here
-                </div>
+              <div className="bg-black-card border border-black-border p-0 md:p-10">
+                <iframe
+                  src={`https://api.leadconnectorhq.com/widget/booking/${bookingIds[slug]}`}
+                  style={{ width: "100%", border: "none", overflow: "auto" }}
+                  className="min-h-[850px] md:min-h-[550px]"
+                />
+                <Script
+                  src="https://link.msgsndr.com/js/form_embed.js"
+                  strategy="afterInteractive"
+                />
               </div>
             </FadeIn>
           </div>

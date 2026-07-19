@@ -1,16 +1,14 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import type { Lang } from "@/lib/i18n/translations";
-import { BookingForm } from "./BookingForm";
+import Script from "next/script";
 
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
-  t: Lang;
 }
 
-export function BookingModal({ isOpen, onClose, t }: BookingModalProps) {
+export function BookingModal({ isOpen, onClose }: BookingModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -30,25 +28,23 @@ export function BookingModal({ isOpen, onClose, t }: BookingModalProps) {
             className="fixed inset-0 z-[70] flex items-center justify-center p-4 overflow-y-auto"
           >
             <div className="glass-amber rounded-lg max-w-2xl w-full my-8 relative">
-              <div className="p-8 md:p-10">
-                <div className="flex items-center justify-between mb-8">
-                  <div>
-                    <span className="font-[family-name:var(--font-accent)] text-amber text-sm tracking-[0.3em] uppercase block mb-1">
-                      {t.bookingModal.eyebrow}
-                    </span>
-                    <h2 className="font-[family-name:var(--font-display)] text-3xl text-silver-light">
-                      {t.bookingModal.title}
-                    </h2>
-                  </div>
-                  <button
-                    onClick={onClose}
-                    className="text-silver-dark hover:text-silver-light transition-colors text-2xl leading-none p-2"
-                    aria-label="Close"
-                  >
-                    ✕
-                  </button>
-                </div>
-                <BookingForm t={t} compact />
+              <div className="p-2 md:p-4">
+                <button
+                  onClick={onClose}
+                  className="text-silver-dark hover:text-silver-light transition-colors text-2xl leading-none p-2 float-right"
+                  aria-label="Close"
+                >
+                  ✕
+                </button>
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/booking/1d5zYuYpGFcnK0oin0wY"
+                  style={{ width: "100%", border: "none", overflow: "auto" }}
+                  className="min-h-[800px] md:min-h-[600px]"
+                />
+                <Script
+                  src="https://link.msgsndr.com/js/form_embed.js"
+                  strategy="afterInteractive"
+                />
               </div>
             </div>
           </motion.div>

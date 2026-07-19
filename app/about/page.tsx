@@ -129,7 +129,7 @@ function ProcessSection({ t }: { t: ReturnType<typeof useT>["t"] }) {
     { ...t.process.step1, image: "/images/silver_pack.webp" },
     { ...t.process.step2, image: "/images/ceramic.webp" },
     { ...t.process.step3, image: "/images/contact.webp" },
-    { ...t.process.step4, image: "/images/ceramic.webp" },
+    { ...t.process.step4, image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=85" },
   ];
   return (
     <section className="py-28 md:py-36 bg-black-light relative overflow-hidden">
