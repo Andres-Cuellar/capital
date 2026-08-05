@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/animations/ScrollProgress";
@@ -51,6 +52,25 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <WhatsAppButton />
           <Footer />
+          <Script
+            type="module"
+            strategy="lazyOnload"
+            dangerouslySetInnerHTML={{
+              __html: `
+                import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
+
+                Typebot.initBubble({
+                  typebot: "bot-capital-detailing-ilb6dte",
+                  apiHost: "https://bot-api.glumpstudio.com",
+                  theme: {
+                    placement: "left",
+                    button: { backgroundColor: "#D09C46" },
+                    chatWindow: { backgroundColor: "#0a0a0a" },
+                  },
+                });
+              `,
+            }}
+          />
         </LanguageProvider>
       </body>
     </html>
