@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useT } from "@/lib/i18n/LanguageProvider";
@@ -9,24 +8,21 @@ import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerCo
 import { GoldFrame } from "@/components/animations/GoldFrame";
 import { CountUp } from "@/components/animations/CountUp";
 import { ServiceCard } from "@/components/ui/ServiceCard";
-import { BookingModal } from "@/components/booking/BookingModal";
 
 export default function HomePage() {
-  const [bookingOpen, setBookingOpen] = useState(false);
   const { t } = useT();
 
   return (
     <>
-      <HeroSection t={t} onBook={() => setBookingOpen(true)} />
+      <HeroSection t={t} />
       <StatsSection t={t} />
       <AboutSummary t={t} />
       <ServicesPreview t={t} />
-      <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
     </>
   );
 }
 
-function HeroSection({ t, onBook }: { t: ReturnType<typeof useT>["t"]; onBook: () => void }) {
+function HeroSection({ t }: { t: ReturnType<typeof useT>["t"] }) {
   const { scrollY } = useScroll();
   const parallaxY = useTransform(scrollY, [0, 600], [0, 150]);
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -89,15 +85,15 @@ function HeroSection({ t, onBook }: { t: ReturnType<typeof useT>["t"]; onBook: (
           transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
-          <button
-            onClick={onBook}
+          <a
+            href="/services#catalog"
             className="group relative bg-amber text-black font-[family-name:var(--font-accent)] text-xl tracking-wider px-10 py-4 overflow-hidden"
           >
             <span className="relative z-10">{t.hero.cta1}</span>
             <span className="absolute inset-0 bg-white/15 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-          </button>
+          </a>
           <a
-            href="/services#catalog"
+            href="/contact"
             className="group relative border border-amber/70 text-amber font-[family-name:var(--font-accent)] text-xl tracking-wider px-10 py-4 overflow-hidden"
           >
             <span className="relative z-10">{t.hero.cta2}</span>

@@ -24,13 +24,13 @@ const en = {
   },
 
   hero: {
-    tagline: "Precision Engineered Shine",
-    headline1: "Drive Clean,",
-    headline2: "Shine Bright",
+    tagline: "Concierge Car Care",
+    headline1: "Detailing Delivered",
+    headline2: "to Your Door",
     subtitle:
-      "Your car deserves meticulous attention, lasting ceramic protection, and an immaculate interior. We deliver nothing less.",
-    cta1: "Contact Us Now",
-    cta2: "View Packages",
+      "Meticulous attention, lasting ceramic protection, and an immaculate interior — wherever you are.",
+    cta1: "Book Now",
+    cta2: "Contact Us",
     scroll: "Scroll",
   },
 
@@ -320,13 +320,13 @@ const es: typeof en = {
   },
 
   hero: {
-    tagline: "Brillo de Ingeniería de Precisión",
-    headline1: "Conduce Limpio,",
-    headline2: "Brilla con Fuerza",
+    tagline: "Cuidado de Autos a Domicilio",
+    headline1: "Detailing a Domicilio",
+    headline2: "en tu Puerta",
     subtitle:
-      "Tu auto merece atención meticulosa, protección cerámica duradera y un interior impecable. No entregamos menos que eso.",
-    cta1: "Contáctanos",
-    cta2: "Ver Paquetes",
+      "Atención meticulosa, protección cerámica duradera y un interior impecable — donde estés.",
+    cta1: "Reservar Ahora",
+    cta2: "Contacto",
     scroll: "Desliza",
   },
 

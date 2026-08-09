@@ -76,7 +76,7 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <Link
-            href="/contact"
+            href="/services#catalog"
             className="inline-flex items-center gap-2 bg-amber text-black font-[family-name:var(--font-accent)] text-lg tracking-wider px-7 py-3 hover:bg-amber-light transition-all duration-300 relative overflow-hidden group"
           >
             <span className="relative z-10">{t.nav.bookNow}</span>
@@ -132,7 +132,7 @@ export function Navbar() {
               </li>
               <li className="pt-4">
                 <Link
-                  href="/contact"
+                  href="/services#catalog"
                   onClick={closeMobile}
                   className="inline-block bg-amber text-black font-[family-name:var(--font-accent)] text-xl tracking-wider px-8 py-3.5"
                 >
