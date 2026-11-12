@@ -15,12 +15,12 @@ type ServiceKey =
   | "platinumCarPkg" | "platinumSuvPkg" | "ceramicPkg";
 
 const bookingIds: Record<string, string> = {
-  silver: "LMa6FGpnLFZTisHYl1fb",
-  gold: "JA6k3JNzAWCYHFmAfz6D",
-  "exterior-polish": "kVPEcfWfej2moiHQalx4",
-  "platinum-cars": "tNllZ49x4bUOoOPNbWZt",
-  "platinum-suvs": "kR6JxCtuV0osUfyj1nwE",
-  "ceramic-coating": "zZ52Dj1WLeWAQO34dflW",
+  silver: "YBczMDslw6iDMI3Fxz4l",
+  gold: "xQW1AoGH3q1XqfZBo6cn",
+  "exterior-polish": "IjIAFg4SPLHr1PaSmMZC",
+  "platinum-cars": "A8hlPuZpvEi3xKPuStp7",
+  "platinum-suvs": "JhMNW7dEQxC7qbTTutKo",
+  "ceramic-coating": "41GhmgoPP2kFRZCaeQ2d",
 };
 
 const slugs: Record<string, { key: ServiceKey; image: string; hero: string }> = {
